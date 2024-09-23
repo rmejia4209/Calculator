@@ -1,0 +1,16 @@
+
+# OS files
+*.DS_Store
+
+# Environment files
+*.env
+
+# IDE config files
+.vscode/
+
+# JS modules
+node_modules/
+
+# Next
+.next/
+
