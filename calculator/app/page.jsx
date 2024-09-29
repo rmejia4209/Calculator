@@ -10,21 +10,12 @@ import CurrentDisplay from "@/components/Display";
 
 export default function Home() {
 
-  const [eq, setEq] = useState([]);
-  const [displayEq, setDisplayEq] = useState("");
-
-  const concatEq = () => {
-    let eqString = "";
-    eq.forEach((element) => (eqString += element + " "));
-    setDisplayEq(eqString);
-  }
-
-  useEffect(() => concatEq(), [eq]);
+  const [equation, setEquation] = useState([]);
 
   return (
     <div className="flex flex-col">
-    <CurrentDisplay />
-      <KeyPad lastAns={null} equation={eq} setEquation={setEq}/>
+      <CurrentDisplay equation={equation}/>
+      <KeyPad lastAns={null} equation={equation} setEquation={setEquation}/>
     </div>
     
   );

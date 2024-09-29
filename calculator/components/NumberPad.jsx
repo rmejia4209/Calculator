@@ -19,6 +19,7 @@ export default function NumberPad({lastAns, equation, setEquation}) {
       const newVal = lastVal + val;
       !isNaN(Number(newVal)) ? newEq.push(newVal) : newEq.push(lastVal);
     }
+    console.log(newEq)
     setEquation(newEq);
   }
 
