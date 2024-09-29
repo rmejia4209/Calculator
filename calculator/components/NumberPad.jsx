@@ -1,39 +1,38 @@
 'use client'
 import NumberButton from "./NumberButton";
+import Operands from "./Operands";
 
 
 
-export default function NumberPad() {
+export default function NumberPad({lastAns, equation, setEquation}) {
+
+
+  const action = (val) => {
+    const lastVal = equation.pop(-1);
+    const isNum = lastVal === "." ? true : !isNaN(Number(lastVal));
+    
+    const newEq = [...equation];
+    if (!isNum || !lastVal) {
+      if (lastVal) newEq.push(lastVal);
+      val === "ans" && lastAns ? newEq.push(lastAns) : newEq.push(val);
+    } else {
+      const newVal = lastVal + val;
+      !isNaN(Number(newVal)) ? newEq.push(newVal) : newEq.push(lastVal);
+    }
+    setEquation(newEq);
+  }
+
+  const nums = ["7", "8", "9", "4", "5", "6", "1", "2", "3", "ans", "0", "."];
   
-  const calcButtons = [
-    {val: "AC", displayVal: "AC", isOperand: false},
-    {val: "(", displayVal: "(", isOperand: false},
-    {val: ")", displayVal: ")", isOperand: false},
-    {val: "/", displayVal: "÷", isOperand: false},
-    {val: 9, displayVal: "9", isOperand: false},
-    {val: 8, displayVal: "8", isOperand: false},
-    {val: 7, displayVal: "7", isOperand: false},
-    {val: "*", displayVal: "x", isOperand: false},
-    {val: 6, displayVal: "6", isOperand: false},
-    {val: 5, displayVal: "5", isOperand: false},
-    {val: 4, displayVal: "4", isOperand: false},
-    {val: "-", displayVal: "-", isOperand: false},
-    {val: 3, displayVal: "3", isOperand: false},
-    {val: 2, displayVal: "2", isOperand: false},
-    {val: 1, displayVal: "1", isOperand: false},
-    {val: "+", displayVal: "+", isOperand: false},
-    {val: null, displayVal: "ans", isOperand: false},
-    {val: 0, displayVal: "0", isOperand: false},
-    {val: ".", displayVal: ".", isOperand: false},
-    {val: "=", displayVal: "=", isOperand: false}
-  ];
-
+ 
   return (
-    <div className="grid grid-cols-4 gap-1">
-      {calcButtons.map((calcButton, idx) => (
-        calcButton.isOperand ? <p>Hello</p> : <NumberButton calcButton={calcButton} key={idx} />
+    <div className="grid grid-cols-subgrid col-start-1 col-end-4 row-start-2 row-end-6 gap-5">
+      {nums.map((num, idx) => (
+        <NumberButton key={idx} num={num} action={action}/>
       ))}
     </div>
   );
+ 
+
 
 }
