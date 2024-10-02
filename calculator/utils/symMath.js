@@ -68,6 +68,7 @@ function mergeStacks(stacks) {
 
 
 function orderOfOperations(equation) {
+  console.log(equation);
 
   const additionStack = [];
   const multiplicationStack = [];
@@ -115,8 +116,16 @@ function orderOfOperations(equation) {
 }
 
 
+function cleanEquation(equation) {
+  return equation.map((element, idx) => {
+    if (element === "÷") return "/";
+    else return element;
+  })
+}
+
+
 export default function solve(equation) {
-  const operationStack = orderOfOperations(equation);
+  const operationStack = orderOfOperations(cleanEquation(equation));
   const operationTree = operationStack[0];
 
   for (let i = 1; i < operationStack.length; i++) {

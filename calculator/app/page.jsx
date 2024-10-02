@@ -1,21 +1,34 @@
 'use client';
 
-import { useContext, useState, useEffect } from "react";
-
-import NumberPad from "@/components/NumberPad";
+import { useState } from "react";
 import KeyPad from "@/components/KeyPad";
-import CurrentDisplay from "@/components/Display";
+import Display from "@/components/display/Display";
 
 
 
 export default function Home() {
 
   const [equation, setEquation] = useState([]);
+  const [history, setHistory] = useState([]);
+  const [lastAns, setLastAns] = useState(null);
+
+
+  
 
   return (
     <div className="flex flex-col">
-      <CurrentDisplay equation={equation}/>
-      <KeyPad lastAns={null} equation={equation} setEquation={setEquation}/>
+      <Display
+        equation={equation}
+        history={history}
+      />
+      <KeyPad
+        equation={equation}
+        setEquation={setEquation}
+        history={history}
+        setHistory={setHistory}
+        lastAns={lastAns}
+        setLastAns={setLastAns}
+      />
     </div>
     
   );

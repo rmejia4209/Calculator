@@ -1,7 +1,7 @@
 import OperandButton from "./OperandButton";
 
 
-export default function Operands({equation, setEquation}) {
+export default function Operands({equation, setEquation, lastAns}) {
   
   const action = (operand) => {
     const lastVal = equation[equation.length - 1];
@@ -20,14 +20,18 @@ export default function Operands({equation, setEquation}) {
       case ")":
         // Can only be placed after a number and must have a matching "("
         if (isNum || lastVal === ")") {
-          const openParenthesisCount = equation.filter(t => t === "(").length;
-          const closeParenthesisCount = equation.filter(t => t === ")").length;
-          if (openParenthesisCount > closeParenthesisCount) newEq.push(operand);
+          const numOpening = equation.filter(t => t === "(").length;
+          const numClosing = equation.filter(t => t === ")").length;
+          if (numOpening > numClosing) newEq.push(operand);
         }
         break;
       default:
         // ÷, x, + must be between two numbers and cannot be first
-        if (lastVal && (isNum || lastVal === ")"))newEq.push(operand);
+        if (lastVal) {
+          if (isNum || lastVal === ")") newEq.push(operand);
+        } else if (lastAns != null) {
+          newEq.push(lastAns, operand);
+        }
         break;
     }
     setEquation(newEq);
