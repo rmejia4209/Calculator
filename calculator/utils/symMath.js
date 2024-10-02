@@ -115,8 +115,7 @@ function orderOfOperations(equation) {
 }
 
 
-function buildTree(equation) {
-
+export default function solve(equation) {
   const operationStack = orderOfOperations(equation);
   const operationTree = operationStack[0];
 
@@ -124,12 +123,5 @@ function buildTree(equation) {
     operationTree.addNode(operationStack[i]);
   }
 
-  return tree.value;
+  return operationTree.value;
 }
-
-
-/* 
-["1", "+", "-", "(", "3", "x", "(", "6", "-", "4", ")", ")"] ans=-5
-*/
-
-console.log(buildTree());

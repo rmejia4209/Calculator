@@ -9,7 +9,7 @@ export default function KeyPad({lastAns, equation, setEquation}) {
     <AllClear />
     <Operands equation={equation} setEquation={setEquation}/>
     <NumberPad lastAns={lastAns} equation={equation} setEquation={setEquation}/>
-    <Equals />
+    <Equals equation={equation} />
 
     </div>
   );
