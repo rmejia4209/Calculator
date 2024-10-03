@@ -20,6 +20,7 @@ export default function Home() {
       <Display
         equation={equation}
         history={history}
+        lastAns={lastAns}
       />
       <KeyPad
         equation={equation}

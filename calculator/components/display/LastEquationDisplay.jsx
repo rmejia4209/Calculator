@@ -13,6 +13,6 @@ export default function LastEquationDisplay({history, formatEquation}){
 
 
   return (
-    <p className="text-xl truncate">History: {displayEq}</p>
+    <p className="text-4xl truncate">History: {displayEq}</p>
   );
 }

@@ -68,7 +68,6 @@ function mergeStacks(stacks) {
 
 
 function orderOfOperations(equation) {
-  console.log(equation);
 
   const additionStack = [];
   const multiplicationStack = [];

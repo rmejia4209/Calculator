@@ -1,8 +1,9 @@
 import LastEquationDisplay from "./LastEquationDisplay";
-import CurrentDisplay from "./CurrentDisplay";
+import CurrentEquation from "./CurrentEquation";
+import PreviousEquation from "./PreviousEquation";
 
 
-export default function Display({equation, history}){
+export default function Display({equation, history, lastAns}){
 
   const formatEquation = (rawEquation, setDisplay) => {
     let equationString = "";
@@ -11,9 +12,16 @@ export default function Display({equation, history}){
   }
 
   return (
-    <div className="w-full max-w-full h-20 rounded-lg border mb-1 truncate">
-      <LastEquationDisplay history={history} formatEquation={formatEquation} />
-      <CurrentDisplay equation={equation} formatEquation={formatEquation} />
+    <div className="flex flex-col w-full max-w-full h-24 rounded-lg border mb-1 truncate">
+      <PreviousEquation
+        history={history}
+        formatEquation={formatEquation}
+        excludeAns={!Boolean(equation.length)}
+      />
+      <CurrentEquation
+        equation={equation}
+        formatEquation={formatEquation}
+        lastAns={lastAns}/>
     </div>
   );
 }

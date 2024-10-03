@@ -1,18 +1,15 @@
 
 
 
-function AllClear({setHistory}) {
+function AllClear({setHistory, setLastAns}) {
 
   const removeHistory = () => {
     setHistory([]);
+    setLastAns(null);
   }
 
   return (
-    <button 
-      onClick={removeHistory}
-    >
-      AC
-    </button>
+    <button onClick={removeHistory}>AC</button>
   );
 
 
@@ -25,17 +22,18 @@ function ClearEntry({equation, setEquation}) {
   }
 
   return (
-    <button 
-      onClick={removeLastEntry}
-    >
-      CE
-    </button>
+    <button onClick={removeLastEntry}>CE</button>
   );
 
 }
 
 
-export default function Clear({equation, setEquation, setHistory}) {
+export default function Clear({
+  equation,
+  setEquation,
+  setHistory,
+  setLastAns
+}) {
 
 
   return (
@@ -44,10 +42,9 @@ export default function Clear({equation, setEquation, setHistory}) {
     >
       {
         equation.length
-          ? <ClearEntry equation={equation} setEquation={setEquation} />
-          : <AllClear setHistory={setHistory} />
+          ? <ClearEntry equation={equation} setEquation={setEquation}/>
+          : <AllClear setHistory={setHistory} setLastAns={setLastAns}/>
       }
-    
     </div>
   );
 }

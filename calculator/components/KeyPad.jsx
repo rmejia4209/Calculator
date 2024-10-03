@@ -17,6 +17,7 @@ export default function KeyPad({
         equation={equation}
         setEquation={setEquation}
         setHistory={setHistory}
+        setLastAns={setLastAns}
       />
       <Operands
         equation={equation}
