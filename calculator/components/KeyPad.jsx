@@ -1,6 +1,6 @@
 import NumberPad from "./NumberPad";
 import Operands from "./Operands";
-import AllClear from "./actions/AllClear";
+import Clear from "./actions/AllClear";
 import Equals from "./actions/Equals";
 
 export default function KeyPad({
@@ -13,7 +13,11 @@ export default function KeyPad({
 }) {
   return (
     <div className="max-w-fit grid grid-cols-4 grid-rows-5 gap-5 w-full">
-      <AllClear />
+      <Clear
+        equation={equation}
+        setEquation={setEquation}
+        setHistory={setHistory}
+      />
       <Operands
         equation={equation}
         setEquation={setEquation}
