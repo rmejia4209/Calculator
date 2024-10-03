@@ -18,9 +18,6 @@ export default function PreviousEquation({
 
 
   return (
-    <>
-      <span className="text-2xl ml-auto mr-2">{formattedEquation}</span>
-    </>
-    
+    <span className="text-2xl ml-auto mr-2">{formattedEquation}</span>
   );
 }

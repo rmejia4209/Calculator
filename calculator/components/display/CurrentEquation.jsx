@@ -10,11 +10,10 @@ export default function CurrentEquation({equation, formatEquation, lastAns}) {
     formatEquation(equation, setFormattedEquation);
   }, [equation])
 
-
   return (
     <span
       className={
-        `float-right text-6xl mt-auto
+        `max-w-fit float-right mt-auto text-4xl
         ${formattedEquation ? "" : "ml-auto mr-2"}`
       }
     >
