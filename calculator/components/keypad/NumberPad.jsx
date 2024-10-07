@@ -1,6 +1,5 @@
 'use client'
-import NumberButton from "./NumberButton";
-
+import CalcButton from "./CalcButton";
 
 
 export default function NumberPad({lastAns, equation, setEquation}) {
@@ -25,9 +24,15 @@ export default function NumberPad({lastAns, equation, setEquation}) {
   
  
   return (
-    <div className="grid grid-cols-subgrid col-start-1 col-end-4 row-start-2 row-end-6 gap-5">
+    <div
+      className="
+        grid grid-cols-subgrid 
+        col-start-1 col-end-4 row-start-2 row-end-6
+        gap-2
+      "
+    >
       {nums.map((num, idx) => (
-        <NumberButton key={idx} num={num} action={action}/>
+        <CalcButton key={idx} val={num} action={action}/>
       ))}
     </div>
   );

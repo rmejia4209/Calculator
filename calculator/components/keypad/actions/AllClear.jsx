@@ -1,4 +1,4 @@
-
+import CalcButton from "../CalcButton";
 
 
 function AllClear({setHistory, setLastAns}) {
@@ -9,7 +9,7 @@ function AllClear({setHistory, setLastAns}) {
   }
 
   return (
-    <button onClick={removeHistory}>AC</button>
+    <CalcButton val={"AC"} action={removeHistory} type={"btn-error"}/>
   );
 
 
@@ -22,7 +22,7 @@ function ClearEntry({equation, setEquation}) {
   }
 
   return (
-    <button onClick={removeLastEntry}>CE</button>
+    <CalcButton val={"CE"} action={removeLastEntry} type={"btn-error"}/>
   );
 
 }
@@ -37,14 +37,12 @@ export default function Clear({
 
 
   return (
-    <div 
-      className="btn btn-square btn-error btn-lg text-xl col-span-1"
-    >
+    <>
       {
         equation.length
           ? <ClearEntry equation={equation} setEquation={setEquation}/>
           : <AllClear setHistory={setHistory} setLastAns={setLastAns}/>
       }
-    </div>
+    </>
   );
 }

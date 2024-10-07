@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from "react";
-import KeyPad from "@/components/KeyPad";
+import MainKeyPad from "@/components/keypad/MainKeyPad";
 import Display from "@/components/display/Display";
 
 
@@ -16,21 +16,22 @@ export default function Home() {
   
 
   return (
-    <div className="flex flex-col">
-      <Display
-        equation={equation}
-        history={history}
-        lastAns={lastAns}
-      />
-      <KeyPad
-        equation={equation}
-        setEquation={setEquation}
-        history={history}
-        setHistory={setHistory}
-        lastAns={lastAns}
-        setLastAns={setLastAns}
-      />
-    </div>
+      <div className="flex flex-col items-center h-screen">
+        <Display
+          equation={equation}
+          history={history}
+          lastAns={lastAns}
+        />
+        <MainKeyPad
+          equation={equation}
+          setEquation={setEquation}
+          history={history}
+          setHistory={setHistory}
+          lastAns={lastAns}
+          setLastAns={setLastAns}
+        />
+      </div>
+    
     
   );
 }

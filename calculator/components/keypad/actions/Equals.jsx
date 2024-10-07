@@ -1,3 +1,4 @@
+import CalcButton from "../CalcButton";
 import solve from "@/utils/symMath";
 
 export default function Equals({
@@ -17,12 +18,8 @@ export default function Equals({
   }
 
   return (
-    <button 
-      className="btn btn-square btn-accent btn-lg text-xl col-span-1 row-start-5"
-      onClick={foo}
-    >
-      =
-    </button>
-
+    <div className="row-start-5"> 
+      <CalcButton val={"="} action={foo} type={"btn-accent"}/>
+    </div>
   );
 }

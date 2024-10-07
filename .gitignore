@@ -14,3 +14,4 @@ node_modules/
 # Next
 .next/
 
+*display_test

@@ -16,7 +16,7 @@ export default function PreviousEquation({history, excludeAns}){
 
 
   return (
-    <div className="text-xl ml-auto mr-2">
+    <div className="h-fit w-fit text-xl ml-auto mr-2">
       <Latex>$${formattedEquation}$$</Latex>
     </div>
   );

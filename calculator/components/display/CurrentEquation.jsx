@@ -24,7 +24,9 @@ export default function CurrentEquation({equation, lastAns}) {
   return (
     <div 
       className={
-        `max-w-fit max-h-fit float-right mt-auto text-4xl
+        `w-fit h-fit
+        float-right mt-auto
+        text-4xl
         ${
           formattedEquations[0].length > 1 || lastAns == null 
           ? "" 
