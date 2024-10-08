@@ -1,3 +1,4 @@
+import ShowHistoryButton from "./ShowHistoryButton";
 import CurrentEquation from "./CurrentEquation";
 import PreviousEquation from "./PreviousEquation";
 import 'katex/dist/katex.min.css';
@@ -15,10 +16,14 @@ export default function Display({equation, history, lastAns}){
           rounded-lg border truncate
         "
       >
-        <PreviousEquation
-          history={history}
-          excludeAns={!Boolean(equation.length)}
-        />
+        <div className="flex flex-row" >
+          <ShowHistoryButton history={history}/>
+          <PreviousEquation
+            history={history}
+            excludeAns={!Boolean(equation.length)}
+          />
+        </div>
+        
         <CurrentEquation
           equation={equation}
           lastAns={lastAns}/>
