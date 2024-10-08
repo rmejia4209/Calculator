@@ -9,9 +9,9 @@ export default function Equals({
   setLastAns
 }) {
 
-  const foo = () => {
+  const getSolution = () => {
     const solution = solve(equation);
-    setLastAns(solution);
+    setLastAns(String(solution));
     const newHistory = [...history, [...equation, "=", String(solution)]];
     setHistory(newHistory);
     setEquation([]);
@@ -19,7 +19,7 @@ export default function Equals({
 
   return (
     <div className="row-start-5"> 
-      <CalcButton val={"="} action={foo} type={"btn-accent"}/>
+      <CalcButton val={"="} action={getSolution} type={"btn-accent"}/>
     </div>
   );
 }

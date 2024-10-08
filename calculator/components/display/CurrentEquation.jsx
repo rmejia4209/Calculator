@@ -28,7 +28,7 @@ export default function CurrentEquation({equation, lastAns}) {
         float-right mt-auto
         text-4xl
         ${
-          formattedEquations[0].length > 1 || lastAns == null 
+          formattedEquations[0].length > 1 || lastAns === null 
           ? "" 
           : "ml-auto mr-2"
         }`
